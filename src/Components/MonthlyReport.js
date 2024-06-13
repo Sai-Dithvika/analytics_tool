@@ -19,7 +19,7 @@ const MonthlyReport = () => {
     const date = getYearFirst();
     useEffect(() => {
         axios
-          .post(process.env.REACT_APP_BACKEND, {
+          .post("http://localhost:3000/analytics/report", {
             dimensions: ["month"],
             metrics: ["totalUsers"],
             dateRanges: [[date, "today"]],
