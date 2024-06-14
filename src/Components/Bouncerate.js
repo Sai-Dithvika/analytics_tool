@@ -10,7 +10,7 @@ function Bouncerate() {
 
     useEffect(() => {
         axios
-          .post("http://localhost:3000/analytics/report", {
+          .post(process.env.REACT_APP_BACKEND, {
             "dimensions": ["pagePath"],
             "metrics": ["totalUsers", "bounceRate"],
             "dateRanges": [[ "2024-01-01", "today"]]

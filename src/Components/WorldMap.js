@@ -28,7 +28,7 @@ function WorldMap() {
     const date = getYearFirst();
     useEffect(() => {
         axios
-          .post("http://localhost:3000/analytics/report", {
+          .post(process.env.REACT_APP_BACKEND, {
             dimensions: ["country"],
             metrics: ["totalUsers"],
             dateRanges: [[date, "today"]],

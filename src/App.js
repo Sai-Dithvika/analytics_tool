@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home'
-import MonthlyReport from './Components/MonthlyReport';
+import MonthlyReport from './Components/Templates/PieChartT';
 import Bouncerate from './Components/Bouncerate';
 import WorldMap from './Components/WorldMap';
 import FormSubmit from './Components/FormSubmit';
