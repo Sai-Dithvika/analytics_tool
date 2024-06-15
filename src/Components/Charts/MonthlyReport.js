@@ -18,7 +18,7 @@ const date= getYearFirst();
 const MonthlyReportParser=async () => {
 try
    { const response = await axios
-      .post(process.env.REACT_APP_BACKEND, {
+      .post(`${process.env.REACT_APP_BACKEND}/analytics/report `, {
         dimensions: ["month"],
         metrics: ["totalUsers"],
         dateRanges: [[date, "today"]],

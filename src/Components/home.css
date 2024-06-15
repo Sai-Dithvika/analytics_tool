@@ -1,7 +1,18 @@
-.dashboard{
-  display: flex;
-  flex-direction:row;
-  grid-row: 2;
-  gap: 10;
-  margin-top: 20px;
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 20px; 
 }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px; 
+}
+
+.comp {
+  height: 100%; /* Expand to fit parent's height */
+}
+
+
+
