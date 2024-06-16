@@ -2,7 +2,6 @@ import { BarChart } from '@mui/x-charts/BarChart';
 
 
 const BarChartT = ({data}) => {
-     
   return (
     <BarChart
       xAxis={[{ scaleType: 'band', data: data.labels, title: 'Page Path' }]}
