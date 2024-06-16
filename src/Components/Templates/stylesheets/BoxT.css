@@ -1,0 +1,25 @@
+.user-count-box {
+    background-color: #149da1; /* Background color */
+    display: flex;
+    width: 200px;
+    height: 200px;
+    color: #ffffff; /* Text color */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for visual effect */
+    text-align: center; /* Center align text */
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+  }
+  
+  .user-count-box h2 {
+    margin-bottom: 1rem; /* Space below the title */
+  }
+  
+  .user-count-box p {
+    font-size: 2rem; /* Larger font size for the user count */
+    font-weight: bold; /* Optional: Bold font for emphasis */
+  }
+  

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Capitalise from '../../Helpers/Capitalise';
 
 const mapper=(data)=>{
     const labels = [];
@@ -10,7 +11,8 @@ const mapper=(data)=>{
     const dataMap = {};
   
     for (const item of data) {
-      const pagePath = item.label1;
+      const s=item.label1.length;
+      let pagePath = Capitalise(item.label1.slice(1,s-5)) +" Page";
       const eventType = item.label2;
       const value = parseInt(item.value1);
   

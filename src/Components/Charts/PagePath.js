@@ -1,15 +1,20 @@
 import axios from "axios";
+import Capitalise from "../../Helpers/Capitalise";
 
 
 const mapper = (data) => {
-    console.log('Raw Data:', data);
-  
-    // Convert the API response into the required format
-    return data.map(item => ({
-      pagePath: item.label1,
-      totalUsers: parseInt(item.value1),
-      newUsers: parseInt(item.value2)
-    }));
+
+    const res=[]
+    for(let i of data){
+      const s=i.label1.length;
+      let pagePath=Capitalise(i.label1.slice(1,s-5)) +" Page";
+      if (pagePath==" Page"){
+        pagePath="Home Page";
+      }
+      res.push({pagePath:pagePath,totalUsers:parseInt(i.value1),newUsers:parseInt(i.value2)});
+
+    }
+    return res;
   };
 
   

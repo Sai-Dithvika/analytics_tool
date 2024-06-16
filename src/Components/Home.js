@@ -18,6 +18,12 @@ import MapChartT from './Templates/MapChartT';
 //<--PAGEPATH DATA -->
 import PagePath from './Charts/PagePath';
 import AreaChartT from './Templates/AreaChartT';
+//<--TOTALUSERS DATA-->
+import TotalUsersCount from './Charts/TotalUsersCount';
+import BoxT from './Templates/BoxT';
+//<--DONATED USERS DATA-->
+import DonatedUsersData from './Charts/DonatedUsersChart';
+import ProgressChartT from './Templates/ProgressChartT';
 
 
 const Home = () => {
@@ -37,6 +43,14 @@ const Home = () => {
 
   //PAGEPATH DATA REPORT
   const [pageData,setPageData]=useState([]);
+
+  //TOTAL USERS DATA REPORT
+  const [totalUsers,setTotalUsers]=useState(0); 
+
+  //DONATED USERS DATA REPORT
+  const [percentage, setPercentage] = useState(0);
+  const [totalUsersData, setTotalUsersData] = useState(0);
+  const [donatedUsers, setDonatedUsers] = useState(0);
 
   useEffect( ()=>{
      const fetchData =async ()=>{
@@ -63,7 +77,17 @@ const Home = () => {
 
       //PAGE PATH DATA
       const pagePathData=await PagePath();
-      setPageData(pagePathData);
+      setPageData(pagePathData); 
+
+      //TOTAL USERS DATA
+      const totalUsersData=await TotalUsersCount();
+      setTotalUsers(totalUsersData);
+
+      //DONATED USERS DATA
+      const {total,donated,percent}= await DonatedUsersData();
+      setPercentage(percent);
+      setTotalUsersData(total);
+      setDonatedUsers(donated);
 
      }
      fetchData();
@@ -84,6 +108,8 @@ const Home = () => {
     <div className='row'>
     <div className='comp'><LineChartT labels={bounceRateLabels} value1Data={bounceRateValue1} value2Data={bounceRateValue2}/></div>
     <div className='comp'><MapChartT data={mapData}/></div>
+    <div className='comp'><BoxT userCount={totalUsers}/></div>
+    <div className='comp'><ProgressChartT totalUsers={totalUsersData} donatedUsers={donatedUsers} percent={percentage}/> </div>
     </div>
     </div>
     </>

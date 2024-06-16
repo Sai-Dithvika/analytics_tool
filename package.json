@@ -20,6 +20,7 @@
     "react-scripts": "^5.0.1",
     "react-simple-maps": "^3.0.0",
     "recharts": "^2.12.7",
+    "rsuite": "^5.64.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
