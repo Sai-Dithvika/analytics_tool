@@ -15,6 +15,9 @@ import BarChartT from './Templates/BarChartT';
 //<--GEOGRAPHICAL REGION DATA -->
 import RegionData from './Charts/RegionData';
 import MapChartT from './Templates/MapChartT';
+//<--PAGEPATH DATA -->
+import PagePath from './Charts/PagePath';
+import AreaChartT from './Templates/AreaChartT';
 
 
 const Home = () => {
@@ -31,6 +34,9 @@ const Home = () => {
 
   //REGION DATA REPORT
   const [mapData,setMapData]=useState([]);
+
+  //PAGEPATH DATA REPORT
+  const [pageData,setPageData]=useState([]);
 
   useEffect( ()=>{
      const fetchData =async ()=>{
@@ -55,6 +61,10 @@ const Home = () => {
       const geoData=await RegionData();
       setMapData(geoData);
 
+      //PAGE PATH DATA
+      const pagePathData=await PagePath();
+      setPageData(pagePathData);
+
      }
      fetchData();
 
@@ -69,6 +79,7 @@ const Home = () => {
     <div className='row'>
     <div className='comp'><PieChartT data={monthReportData}/></div>
     <div className='comp'><BarChartT data={formData}/></div>
+    <div className='comp'><AreaChartT data={pageData}/></div>
     </div>
     <div className='row'>
     <div className='comp'><LineChartT labels={bounceRateLabels} value1Data={bounceRateValue1} value2Data={bounceRateValue2}/></div>
