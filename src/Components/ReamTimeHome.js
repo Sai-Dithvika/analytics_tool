@@ -3,21 +3,28 @@ import ActiveUsersCount from './Charts/RealTime_Report/ActiveUsersCount';
 import RealTimeRegionData from './Charts/RealTime_Report/RealTimeRegionData';
 import FormData from './Charts/RealTime_Report/FormData';
 import Navbar from './Navbar';
-import './RealTimeHome.css'; // Import the CSS file
+import RegionData from './Charts/Report_Data/RegionData';
+// import './RealTimeHome.css'; // Import the CSS file
 
 function ReamTimeHome() {
 return (
-<div className="body">
-<Navbar />
-<div className="content">
-  <div class="row1">
-  <ActiveUsersCount />
-  <FormData />
 
+<div className='min-h-screen bg-slate-100'>
+  <Navbar />
+  <div className='flex flex-wrap gap-6 mt-10 justify-around m-4'>
+    <div className='bg-white flex flex-col justify-around items-center flex-auto rounded-md p-4 shadow-xl'>
+      <h5>ActiveUsersCount</h5>
+      <ActiveUsersCount />
+    </div>
+    <div className="bg-white flex flex-col justify-around items-center flex-auto rounded-md p-4 shadow-xl">
+          <h5 className="text-lg font-semibold mb-4">Page vs Form Submissions</h5>
+          <FormData />
+        </div>
+    <div className="bg-white flex flex-col justify-around items-center w-full max-w-4xl rounded-md p-4 shadow-xl">
+      <h5 className="text-lg font-semibold mb-4">ActiveUsers vs Location</h5>
+      <RealTimeRegionData />
+    </div>
   </div>
-
-<RealTimeRegionData />
-</div>
 </div>
 );
 }

@@ -2,7 +2,7 @@ import { Chart } from "react-google-charts";
 
 export const options = {
   colorAxis: { colors: ["#00853f", "black", "#e31b23"] },
-  backgroundColor: "#81d4fa",
+  // backgroundColor: "#81d4fa",
   datalessRegionColor: "#f8bbd0",
   defaultColor: "#f5f5f5",
 };

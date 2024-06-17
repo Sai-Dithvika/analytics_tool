@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 const styles = {
   navbar: {
-    height:'1440',
-    width:'65',
+    height: '65px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -18,7 +19,6 @@ const styles = {
   },
   navbarRight: {
     marginRight: '60px',
-    
   },
   realtimeButton: {
     display: 'flex',
@@ -34,7 +34,6 @@ const styles = {
     border: '2px solid #02B2AF',
     borderRadius: '10px',
     transition: 'background-color 0.3s ease, color 0.3s ease',
-    
   },
   realtimeButtonHover: {
     backgroundColor: '#02B2AF',
@@ -43,10 +42,31 @@ const styles = {
 };
 
 function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [buttonText, setButtonText] = useState('Realtime');
+
+  useEffect(() => {
+    if (location.pathname === '/realtime') {
+      setButtonText('Back');
+    } else {
+      setButtonText('Realtime');
+    }
+  }, [location.pathname]);
+
+  const handleNavigation = () => {
+    if (location.pathname === '/realtime') {
+      navigate('/');
+    } else {
+      navigate('/realtime');
+    }
+  };
+
   return (
     <div style={styles.navbar}>
       <div style={styles.navbarLeft}>
-        <span style={{color:"#02B2AF"}}>Dash</span><span style={{ color: "#2E96FF" }}>board</span>
+        <span style={{ color: "#02B2AF" }}>Dash</span>
+        <span style={{ color: "#2E96FF" }}>board</span>
       </div>
       <div style={styles.navbarRight}>
         <button
@@ -59,8 +79,9 @@ function Navbar() {
             e.currentTarget.style.backgroundColor = styles.realtimeButton.backgroundColor;
             e.currentTarget.style.color = styles.realtimeButton.color;
           }}
+          onClick={handleNavigation}
         >
-          Realtime
+          {buttonText}
         </button>
       </div>
     </div>
