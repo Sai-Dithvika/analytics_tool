@@ -13,7 +13,6 @@ const mapper = (data) => {
   const dataMap = {};
 
   for (const item of data) {
-    const s = item.label1.length;
     let pagePath = "Bhumi Website Form Stats"
     const eventType = item.label1;
     const value = parseInt(item.value1);

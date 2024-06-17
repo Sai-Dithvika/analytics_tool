@@ -1,6 +1,7 @@
 import React from 'react'
 import RealTimeRegionData from './Charts/RealTime_Report/RealTimeRegionData';
 import FormData from './Charts/RealTime_Report/FormData';
+import ActiveUsersCount from './Charts/RealTime_Report/ActiveUsersCount';
 
 function ReamTimeHome() {
   return (
@@ -10,7 +11,7 @@ function ReamTimeHome() {
     </div>
     <RealTimeRegionData/>
     <FormData/>
-      
+    <ActiveUsersCount />
     </div>
   )
 }
