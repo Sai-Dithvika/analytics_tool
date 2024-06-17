@@ -1,5 +1,4 @@
 import axios from "axios";
-import Capitalise from "../../../Helpers/Capitalise";
 import { useState, useEffect } from "react";
 import BarChartT from "../../Templates/BarChartT";
 
@@ -15,8 +14,8 @@ const mapper = (data) => {
 
   for (const item of data) {
     const s = item.label1.length;
-    let pagePath = Capitalise(item.label1.slice(1, s - 5)) + " Page";
-    const eventType = item.label2;
+    let pagePath = "Bhumi Website Form Stats"
+    const eventType = item.label1;
     const value = parseInt(item.value1);
 
     if (!dataMap[pagePath]) {
