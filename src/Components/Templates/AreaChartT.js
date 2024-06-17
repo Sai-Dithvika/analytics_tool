@@ -11,11 +11,12 @@ const AreaChartT = ({ data }) => {
         <YAxis yAxisId="right" orientation="right" label={{ value: 'New Users', angle: -90, position: 'insideRight' }} />
         <Tooltip 
           formatter={(value, name, props) => {
-            return [
-              `Path: ${props.payload.pagePath}`,
-              `Total Users: ${props.payload.totalUsers}`,
-              `New Users: ${props.payload.newUsers}`
-            ];
+            if (name === "Total Users") {
+              return [`${value}`, 'Total Users'];
+            } else if (name === "New Users") {
+              return [`${value}`, 'New Users'];
+            }
+            return [value, name];
           }} 
         />
         <Area yAxisId="left" type="monotone" dataKey="totalUsers" name="Total Users" stroke="#8884d8" fill="#8884d8" />
