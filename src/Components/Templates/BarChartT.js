@@ -6,8 +6,8 @@ const BarChartT = ({data}) => {
     <BarChart
       xAxis={[{ scaleType: 'band', data: data.labels, title: 'Page Path' }]}
       series={[
-        { data: data.seriesData.form_submit, label: 'Form Submit' },
-        { data: data.seriesData.form_start, label: 'Form Start' }
+        { data: data.seriesData.form_start, label: 'Form Start' },
+        { data: data.seriesData.form_submit, label: 'Form Submit' }
       ]}
       categoryGapRatio={0.5}
       barGapRatio={0.1}
