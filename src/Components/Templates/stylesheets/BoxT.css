@@ -1,17 +1,18 @@
 .user-count-box {
     background-color: #149da1; /* Background color */
     display: flex;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     color: #ffffff; /* Text color */
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for visual effect */
     text-align: center; /* Center align text */
     justify-content: center;
     align-items: center;
+    margin-right: 40px;
     /* flex-wrap: wrap; */
     flex-direction: column;
+    border-radius: 15px; /* Rounded corners */
+  padding: 20px; /* Padding inside each container */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .user-count-box h2 {

@@ -41,10 +41,10 @@ const ActiveUsersCount = () => {
     label: "Last 5 Minutes",
   };
   return(
-    <div>
-        <BoxT data={Data} />
-        <BoxT data={Data1} />
-    </div>
+    <div style={{ display: "flex", flexDirection: "row" }}>
+    <BoxT data={Data} style={{ marginRight: "20px", height: "40px" }} />
+    <BoxT data={Data1} />
+  </div>
   )
 }
 

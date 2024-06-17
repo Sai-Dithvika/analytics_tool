@@ -46,7 +46,7 @@ function Navbar() {
   return (
     <div style={styles.navbar}>
       <div style={styles.navbarLeft}>
-        Dashboard
+        <span style={{color:"#02B2AF"}}>Dash</span><span style={{ color: "#2E96FF" }}>board</span>
       </div>
       <div style={styles.navbarRight}>
         <button
