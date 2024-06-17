@@ -37,7 +37,7 @@ const DonatedUsersData= ()=>{
         
         const total = TotalResponse.data.data[0].value1;
         const donated = DonationResponse.data.data[0].value1;
-        const percent = total === 0 ? 0 : (donated / total) * 100;
+        const percent = total === 0 ? 0 : ((donated / total) * 100).toFixed(2);
         setData({total,donated,percent});
       }
       catch(error){
