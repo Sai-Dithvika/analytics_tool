@@ -7,6 +7,7 @@ const date = getMonthFirst();
 
 const TotalUsersCount = () => {
   const [data, setData] = useState(0);
+  const [data1, setData1] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,11 +15,12 @@ const TotalUsersCount = () => {
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
-            metrics: ["totalUsers"],
+            metrics: ["totalUsers","newUsers"],
             dateRanges: [[date, "today"]],
           }
         );
         setData(response.data.data[0].value1);
+        setData1(response.data.data[0].value2);
       } catch (error) {
         console.log(error);
         setData(0);
@@ -32,8 +34,16 @@ const TotalUsersCount = () => {
     userCount: data,
     label: "Total Users",
   };
-
-  return <BoxT data={Data} />;
+  const Data1 = {
+    userCount: data1,
+    label: "New Users",
+  };
+  return (
+    <div>
+      <BoxT data={Data} />
+      <BoxT data={Data1} />
+    </div>
+  );
 };
 
 export default TotalUsersCount;
