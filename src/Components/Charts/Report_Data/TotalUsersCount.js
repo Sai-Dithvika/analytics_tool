@@ -15,8 +15,8 @@ const TotalUsersCount = () => {
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
-            metrics: ["totalUsers","newUsers"],
-            dateRanges: [[date, "today"]],
+            "metrics": ["activeUsers","newUsers"],
+            "dateRanges": [[date, "today"]],
           }
         );
         setData(response.data.data[0].value1);
