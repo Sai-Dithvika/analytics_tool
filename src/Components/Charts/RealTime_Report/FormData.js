@@ -74,4 +74,5 @@ const FormData = () => {
   return <BarChartT data={data} />;
 };
 
+
 export default FormData;
