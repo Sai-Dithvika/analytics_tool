@@ -1,8 +1,8 @@
 import axios from "axios";
-import Capitalise from "../../Helpers/Capitalise";
+import Capitalise from "../../../Helpers/Capitalise";
 import { useEffect, useState } from "react";
-import LineChartT from "../Templates/LineChartT";
-import getMonthFirst from "../../Helpers/getMonthFirst";
+import LineChartT from "../../Templates/LineChartT";
+import getMonthFirst from "../../../Helpers/getMonthFirst";
 
 const mapper = (data) => {
   const labels = data.map((item) => {

@@ -1,7 +1,7 @@
 import axios from "axios";
-import Capitalise from "../../Helpers/Capitalise";
+import Capitalise from "../../../Helpers/Capitalise";
 import { useEffect, useState } from "react";
-import AreaChartT from "../Templates/AreaChartT";
+import AreaChartT from "../../Templates/AreaChartT";
 
 
 const mapper = (data) => {

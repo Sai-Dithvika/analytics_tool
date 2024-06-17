@@ -1,8 +1,8 @@
 import axios from "axios";
-import Capitalise from "../../Helpers/Capitalise";
+import Capitalise from "../../../Helpers/Capitalise";
 import { useState, useEffect } from "react";
-import BarChartT from "../Templates/BarChartT";
-import getMonthFirst from "../../Helpers/getMonthFirst";
+import BarChartT from "../../Templates/BarChartT";
+import getMonthFirst from "../../../Helpers/getMonthFirst";
 
 const date = getMonthFirst();
 

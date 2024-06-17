@@ -1,7 +1,7 @@
 import axios from "axios";
-import getMonthFirst from "../../Helpers/getMonthFirst";
+import getMonthFirst from "../../../Helpers/getMonthFirst";
 import { useState,useEffect } from "react";
-import ProgressChartT from "../Templates/ProgressChartT";
+import ProgressChartT from "../../Templates/ProgressChartT";
 
 const date = getMonthFirst();
 const DonatedUsersData= ()=>{

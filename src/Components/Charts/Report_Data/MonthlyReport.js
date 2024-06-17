@@ -1,19 +1,25 @@
-import axios from "axios";
-import getYearFirst from "../../Helpers/getYearFirst";
 import { useState, useEffect } from "react";
-import MapChartT from "../Templates/MapChartT";
-
-const date = getYearFirst();
+import axios from "axios";
+import getYearFirst from "../../../Helpers/getYearFirst";
+import MonthConverter from "../../../Helpers/MonthConverter";
+import PieChartT from "../../Templates/PieChartT";
 
 const mapper = (data) => {
-  var res = [["Country", "Users"]];
+  var id = 0;
+  const res = [];
   for (let i of data) {
-    res.push([i.label1, parseInt(i.value1)]);
+    res.push({
+      id: id++,
+      value: i.value1,
+      label: MonthConverter(parseInt(i.label1)),
+    });
   }
   return res;
 };
 
-const RegionData = () => {
+const date = getYearFirst();
+
+const MonthlyReport = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -22,22 +28,19 @@ const RegionData = () => {
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
-            dimensions: ["country"],
+            dimensions: ["month"],
             metrics: ["totalUsers"],
             dateRanges: [[date, "today"]],
           }
         );
         setData(mapper(response.data.data));
-      } catch (error) {
-        console.log(error);
+      } catch (e) {
         setData([]);
       }
     };
-
     fetchData();
   }, []);
-
-  return <MapChartT data={data} />;
+  return <PieChartT data={data} />;
 };
 
-export default RegionData;
+export default MonthlyReport;

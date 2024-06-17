@@ -1,7 +1,7 @@
 import axios from "axios";
-import getMonthFirst from "../../Helpers/getMonthFirst";
+import getMonthFirst from "../../../Helpers/getMonthFirst";
 import { useEffect, useState } from "react";
-import BoxT from "../Templates/BoxT";
+import BoxT from "../../Templates/BoxT";
 
 const date = getMonthFirst();
 
