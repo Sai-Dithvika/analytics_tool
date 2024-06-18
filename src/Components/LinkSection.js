@@ -24,4 +24,4 @@ const LinksSection = () => {
   );
 };
 
-export default LinksSection;
+export default LinkSection;
