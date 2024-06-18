@@ -17,7 +17,8 @@ const Home = () => {
     <div className="min-h-screen bg-slate-100">
       <Navbar />
       <LinksSection />
-      <div className="flex flex-wrap justify-around mt-8 m-4 gap-4">
+      <div className="flex flex-wrap justify-center mt-8 m-4 gap-4">
+       
       <div className="bg-white flex flex-col justify-around items-center w-full max-w-sm rounded-md p-4 shadow-lg">
           <h5 className="text-lg font-semibold mb-4">UsersCount and Donations</h5>
           <div className='flex flex-1 gap-2 items-center'>
