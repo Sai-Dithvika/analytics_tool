@@ -12,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/realtime" element={<ReamTimeHome/>}/>
+          <Route path="/Navbar" element={<Navbar />}/>
 
         </Routes>
       </BrowserRouter>
