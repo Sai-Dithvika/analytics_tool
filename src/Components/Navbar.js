@@ -112,21 +112,48 @@ const Navbar=()=>{
       navigate('/realtime');
     }
   };
-  return(
+  return (
     <div className="flex flex-wrap w-full h-[70px] justify-between  items-center shadow-xl px-[80px]  ">
-      <div className=' text-[30px] font-semibold'><span className='text-[#149da1]'>Dash</span><span className='text-[#2E96FF]'>Board</span></div>
+      <div className=" text-[30px] font-semibold">
+        <span className="text-[#149da1]">Dash</span>
+        <span className="text-[#2E96FF]">Board</span>
+      </div>
 
       <div className="flex justify-between items-center text-[20px] text-black space-x-[100px] ">
-      <Link to="/link1" className='text-black hover:text-black hover:font-bold focus:text-black focus:font-bold'>Demographic</Link>  
-      <Link to="/link2" className='text-black hover:text-black hover:font-bold'>Users</Link>
-      <Link to="/link3" className='text-black hover:text-black hover:font-bold'>BounceRate</Link>
-      <Link to="/link4" className='text-black hover:text-black hover:font-bold'>FormSubmissions</Link>
+        <Link
+          to="/demographic-data"
+          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
+        >
+          Demographic
+        </Link>
+        <Link
+          to="/link2"
+          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
+        >
+          Users
+        </Link>
+        <Link
+          to="/bounce-rate"
+          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
+        >
+          BounceRate
+        </Link>
+        <Link
+          to="/form-data"
+          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
+        >
+          FormSubmissions
+        </Link>
+      </div>
+
+      <div
+        onClick={handleNavigation}
+        className="flex text-[#149da1] p-2 w-[100px] justify-center items-center h-[40px] text-[20px] rounded-md  hover:bg-[#149da1] hover:text-white cursor-pointer border border-[#149da1]"
+      >
+        {buttonText}
+      </div>
     </div>
-      
-      <div onClick={handleNavigation}
-      className="flex text-[#149da1] p-2 w-[100px] justify-center items-center h-[40px] text-[20px] rounded-md  hover:bg-[#149da1] hover:text-white cursor-pointer border border-[#149da1]">{buttonText}</div>
-    </div>
-  )
+  );
 }
 
 export default Navbar;

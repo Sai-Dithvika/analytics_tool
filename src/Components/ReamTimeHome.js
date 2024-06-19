@@ -10,7 +10,6 @@ function ReamTimeHome() {
 return (
 
 <div className='min-h-screen bg-slate-100'>
-  <Navbar />
   <div className='flex flex-wrap gap-6 mt-10 justify-around m-4'>
     <div className='bg-white flex flex-col justify-around items-center flex-auto rounded-md p-4 shadow-xl'>
       <h5>ActiveUsersCount</h5>
