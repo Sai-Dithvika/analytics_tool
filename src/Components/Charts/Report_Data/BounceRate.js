@@ -14,7 +14,7 @@ const mapper = (data) => {
   });
   const value1Data = data.map((item) => parseFloat(item.value1));
   const value2Data = data.map(
-    (item) => parseFloat(item.value1) * parseFloat(item.value2)
+    (item) => Math.ceil(parseFloat(item.value1) * parseFloat(item.value2))
   );
   return { labels, value1Data, value2Data };
 };

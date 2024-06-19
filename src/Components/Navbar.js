@@ -112,21 +112,49 @@ const Navbar=()=>{
       navigate('/realtime');
     }
   };
-  return(
+  return (
     <div className="flex flex-wrap w-full h-[70px] justify-between  items-center shadow-xl px-[80px]  ">
-      <div className=' text-[30px] font-semibold'><span className='text-[#149da1]'>Dash</span><span className='text-[#2E96FF]'>Board</span></div>
+      <div className=" text-[30px] font-semibold">
+        <span className="text-[#149da1]">Dash</span>
+        <span className="text-[#2E96FF]">Board</span>
+      </div>
 
-      <div className="flex justify-between items-center text-[20px] text-black space-x-[100px] ">
-      <Link to="/link1" className='text-black hover:text-black hover:font-bold focus:text-black focus:font-bold'>Demographic</Link>  
-      <Link to="/user-page" className='text-black hover:text-black hover:font-bold'>Users</Link>
-      <Link to="/link3" className='text-black hover:text-black hover:font-bold'>BounceRate</Link>
-      <Link to="/link4" className='text-black hover:text-black hover:font-bold'>FormSubmissions</Link>
-    </div>
+      <div className="flex justify-between items-center text-[20px] text-black space-x-[100px]">
+  <Link
+    to="/link1"
+    className='relative text-black hover:text-black hover:font-bold focus:text-black focus:font-bold group focus:no-underline hover:no-underline'
+  >
+    Demographic
+    <span className="block absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 transition-transform duration-300 ease-out origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left"></span>
+  </Link>
+  <Link
+    to="/link2"
+    className='relative text-black hover:text-black hover:font-bold focus:text-black focus:font-bold group focus:no-underline hover:no-underline'
+  >
+    Users
+    <span className="block absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 transition-transform duration-300 ease-out origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left"></span>
+  </Link>
+  <Link
+    to="/link3"
+    className='relative text-black hover:text-black hover:font-bold focus:text-black focus:font-bold group focus:no-underline hover:no-underline'
+  >
+    BounceRate
+    <span className="block absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 transition-transform duration-300 ease-out origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left"></span>
+  </Link>
+  <Link
+    to="/link4"
+    className='relative text-black hover:text-black hover:font-bold focus:text-black focus:font-bold group focus:no-underline hover:no-underline'
+  >
+    FormSubmissions
+    <span className="block absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 transition-transform duration-300 ease-out origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left"></span>
+  </Link>
+</div>
+
       
       <div onClick={handleNavigation}
       className="flex text-[#149da1] p-2 w-[100px] justify-center items-center h-[40px] text-[20px] rounded-md  hover:bg-[#149da1] hover:text-white cursor-pointer border border-[#149da1]">{buttonText}</div>
     </div>
-  )
+  );
 }
 
 export default Navbar;
