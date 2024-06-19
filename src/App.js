@@ -3,13 +3,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home'
 import ReamTimeHome from './Components/ReamTimeHome';
 import Users from './Components/Users';
-import BounceRatePage from './Components/Pages/BouceRatePage';
+import BounceRatePage from './Components/Pages/BounceRatePage';
+import Navbar from './Components/Navbar';
 
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/realtime" element={<ReamTimeHome/>}/>
