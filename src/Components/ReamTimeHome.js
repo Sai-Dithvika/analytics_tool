@@ -17,7 +17,7 @@ return (
       <ActiveUsersCount />
     </div>
     <div className="bg-white flex flex-col justify-around items-center flex-auto rounded-md p-4 shadow-xl">
-          <h5 className="text-lg font-semibold mb-4">Page vs Form Submissions</h5>
+          <h5 className="text-lg font-semibold mb-4">Total Form Submissions</h5>
           <FormData />
         </div>
     <div className="bg-white flex flex-col justify-around items-center w-full max-w-4xl rounded-md p-4 shadow-xl">
