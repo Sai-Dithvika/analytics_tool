@@ -18,7 +18,7 @@ const LinksSection = () => {
        
         <Link to="/link1" className={getLinkClass('/link1')}>Demographic</Link>
         <Link to="/link2" className={getLinkClass('/link2')}>Users</Link>
-        <Link to="/link3" className={getLinkClass('/link3')}>BounceRate</Link>
+        <Link to="/bounce-rate" className={getLinkClass('/link3')}>BounceRate</Link>
         <Link to="/link4" className={getLinkClass('/link4')}>FormSubmissions</Link>
       
     </div>
