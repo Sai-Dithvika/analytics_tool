@@ -5,7 +5,7 @@ import ReamTimeHome from './Components/ReamTimeHome';
 import Users from './Components/Users';
 import BounceRatePage from './Components/Pages/BounceRatePage';
 import Navbar from './Components/Navbar';
-
+import UserPage from './Components/Pages/UserPage';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/realtime" element={<ReamTimeHome/>}/>
           <Route path="/Navbar" element={<Navbar />}/>
+          <Route path="/user-page" element={<UserPage/>}/>
 
           <Route path="/link1" element = {<Users />}/>
           <Route path="/bounce-rate" element = {<BounceRatePage />}/>

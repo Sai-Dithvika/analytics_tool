@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TotalUsersCount from "./Charts/Report_Data/TotalUsersCount";
-import LinksSection from "./LinkSection";
+
 import RegionData from "./Charts/Report_Data/RegionData";
 import Navbar from "./Navbar";
 import DateInput from './Templates/DataInput';
@@ -19,8 +19,8 @@ const Users = () => {
 
   return (
     <>
-      <Navbar />
-      <LinksSection />
+      
+      
       <div className="flex flex-row-reverse gap-2 mt-10 mx-10">
         {inputs.map((input) => (
           <DateInput

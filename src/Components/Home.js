@@ -9,14 +9,14 @@ import TotalUsersCount from './Charts/Report_Data/TotalUsersCount';
 import DonatedUsersData from './Charts/Report_Data/DonatedUsersChart';
 import MonthlyReport from './Charts/Report_Data/MonthlyReport';
 import Navbar from './Navbar';
-import LinksSection from './LinkSection'
+
 
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-slate-100">
       <Navbar />
-      <LinksSection />
+   
       <div className="flex flex-wrap justify-center mt-8 m-4 gap-4">
        
       <div className="bg-white flex flex-col justify-around items-center w-full max-w-sm rounded-md p-4 shadow-lg">

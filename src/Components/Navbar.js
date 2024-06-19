@@ -118,7 +118,7 @@ const Navbar=()=>{
 
       <div className="flex justify-between items-center text-[20px] text-black space-x-[100px] ">
       <Link to="/link1" className='text-black hover:text-black hover:font-bold focus:text-black focus:font-bold'>Demographic</Link>  
-      <Link to="/link2" className='text-black hover:text-black hover:font-bold'>Users</Link>
+      <Link to="/user-page" className='text-black hover:text-black hover:font-bold'>Users</Link>
       <Link to="/link3" className='text-black hover:text-black hover:font-bold'>BounceRate</Link>
       <Link to="/link4" className='text-black hover:text-black hover:font-bold'>FormSubmissions</Link>
     </div>
