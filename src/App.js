@@ -17,6 +17,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      <div className='bg-slate-100 min-h-screen'>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -39,6 +40,7 @@ function App() {
 
           
         </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );
