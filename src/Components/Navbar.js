@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import ReportNavbar from './NavBars/ReportNavbar';
+import Realtimenavbar from './NavBars/Realtimenavbar';
 
 // const styles = {
 //   navbar: {
@@ -96,9 +98,14 @@ const Navbar=()=>{
   const navigate = useNavigate();
   const location = useLocation();
   const [buttonText, setButtonText] = useState('Realtime');
+  var path = location.pathname;
+  var pattern = /^\/realtime/g ;
 
   useEffect(() => {
-    if (location.pathname === '/realtime') {
+    path = location.pathname;
+    pattern = /^\/realtime/g ;
+    if ((pattern.test(path))) {
+      // window.alert(pattern.test(path));
       setButtonText('Back');
     } else {
       setButtonText('Realtime');
@@ -118,33 +125,8 @@ const Navbar=()=>{
         <span className="text-[#149da1]">Dash</span>
         <span className="text-[#2E96FF]">Board</span>
       </div>
-
-      <div className="flex justify-between items-center text-[20px] text-black space-x-[100px] ">
-        <Link
-          to="/demographic-data"
-          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
-        >
-          Demographic
-        </Link>
-        <Link
-          to="/user-page"
-          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
-        >
-          Users
-        </Link>
-        <Link
-          to="/bounce-rate"
-          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
-        >
-          BounceRate
-        </Link>
-        <Link
-          to="/form-data"
-          className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
-        >
-          FormSubmissions
-        </Link>
-      </div>
+{!(pattern.test(path)) ? <ReportNavbar/> : <Realtimenavbar/> };
+ 
 
       <div
         onClick={handleNavigation}
