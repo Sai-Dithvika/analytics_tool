@@ -2,7 +2,7 @@ import axios from "axios";
 import getYearFirst from "../../../Helpers/getYearFirst";
 import { useState, useEffect } from "react";
 import MapChartT from "../../Templates/MapChartT";
-import RegionDataInference from "../../Infernces/RegionDataInference";
+
 
 const date = getYearFirst();
 
@@ -17,7 +17,6 @@ const mapper = (data) => {
     res.push([i.label1, parseInt(i.value1)]);
   }
   res.sort(sortFunction);
-  console.log(JSON.stringify(res));
   return res;
 };
 
@@ -48,7 +47,6 @@ const RegionData = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <MapChartT data={data} />
-      {/* <RegionDataInference /> */}
     </div>
   );
 };

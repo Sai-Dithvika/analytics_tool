@@ -7,7 +7,7 @@ const UserPage = () => {
       <div className="flex flex-col  justify-around  items-center box-content h-[50vh] w-[35vw] p-4 m-auto shadow-2xl rounded-lg">
         <h3>Active Users</h3>
         <ActiveUsersCount />
-        </div>
+    </div>
     </div>
   )
 }
