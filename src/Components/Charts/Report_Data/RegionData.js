@@ -2,7 +2,7 @@ import axios from "axios";
 import getYearFirst from "../../../Helpers/getYearFirst";
 import { useState, useEffect } from "react";
 import MapChartT from "../../Templates/MapChartT";
-import RegionDataInference from "../../Infernces/RegionDataInference";
+
 
 const date = getYearFirst();
 
