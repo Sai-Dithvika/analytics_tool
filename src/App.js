@@ -4,13 +4,9 @@ import Home from './Components/Home'
 import ReamTimeHome from './Components/ReamTimeHome';
 import BounceRatePage from './Components/Pages/BounceRatePage';
 import Navbar from './Components/Navbar';
-<<<<<<< HEAD
-import UserPage from './Components/Pages/UserPage';
-=======
 import DemographicPage from './Components/Pages/DemographicPage';
 import FormSubmissionPage from './Components/Pages/FormSubmissionPage';
->>>>>>> 2a44a94296637a9406d9237963ed3f565ba0674c
-
+import UserPage from './Components/Pages/UserPage';
 function App() {
   return (
     <div>

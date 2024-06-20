@@ -127,7 +127,7 @@ const Navbar=()=>{
           Demographic
         </Link>
         <Link
-          to="/link2"
+          to="/user-page"
           className="text-black hover:text-black hover:font-bold focus:text-black focus:font-bold"
         >
           Users

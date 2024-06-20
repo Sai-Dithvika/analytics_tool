@@ -8,14 +8,14 @@ import PagePath from './Charts/Report_Data/PagePath';
 import TotalUsersCount from './Charts/Report_Data/TotalUsersCount';
 import DonatedUsersData from './Charts/Report_Data/DonatedUsersChart';
 import MonthlyReport from './Charts/Report_Data/MonthlyReport';
-import Navbar from './Navbar';
+
 
 
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-slate-100">
-      <Navbar />
+    
    
       <div className="flex flex-wrap justify-center mt-8 m-4 gap-4">
        
