@@ -120,12 +120,12 @@ const Navbar=()=>{
     }
   };
   return (
-    <div className="flex flex-wrap w-full h-[70px] justify-between  items-center shadow-xl px-[80px]  ">
+    <div className="flex flex-wrap w-full h-[70px] justify-around  items-center shadow-xl px-[80px]  ">
       <div className=" text-[30px] font-semibold">
         <span className="text-[#149da1]">Dash</span>
         <span className="text-[#2E96FF]">Board</span>
       </div>
-{!(pattern.test(path)) ? <ReportNavbar/> : <Realtimenavbar/> };
+{!(pattern.test(path)) ? <ReportNavbar/> : <Realtimenavbar/> }
  
 
       <div
