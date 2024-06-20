@@ -48,7 +48,7 @@ const RegionData = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <MapChartT data={data} />
-      <RegionDataInference />
+      {/* <RegionDataInference /> */}
     </div>
   );
 };
