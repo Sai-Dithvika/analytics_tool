@@ -23,14 +23,18 @@ const RealTimeRegionData = () => {
             metrics: ["ActiveUsers"],
           }
         );
+        console.log(response.data.data);
         setData(mapper(response.data.data));
       } catch (error) {
-        console.log(error);
+        console.log("hi"+ error);
         setData([]);
       }
     };
 
     fetchData();
+    const interval = setInterval(fetchData, 30000);
+
+    return () => clearInterval(interval); 
   }, []);
 
   return <MapChartT data={data} />;
