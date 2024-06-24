@@ -1,13 +1,12 @@
 import axios from "axios";
-import getMonthFirst from "../../../Helpers/getMonthFirst";
 import { useEffect, useState } from "react";
 import BoxT from "../../Templates/BoxT";
-
-const date = getMonthFirst();
+import useDataStore from "../../../Store/useDataStore";
 
 const TotalUsersCount = () => {
   const [data, setData] = useState(0);
   const [data1, setData1] = useState(0);
+  const { startDate, endDate } = useDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,19 +15,21 @@ const TotalUsersCount = () => {
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
             "metrics": ["activeUsers","newUsers"],
-            "dateRanges": [[date, "today"]],
+            "dateRanges": [[startDate,endDate]],
           }
         );
-        setData(response.data.data[0].value1);
-        setData1(response.data.data[0].value2);
-      } catch (error) {
+       setData(response.data.data[0].value1);
+       setData1(response.data.data[0].value2);
+      }
+      catch(error) { 
         console.log(error);
         setData(0);
+        setData1(0);
       }
     };
 
     fetchData();
-  }, []);
+  }, [startDate, endDate]);
 
   const Data = {
     userCount: data,

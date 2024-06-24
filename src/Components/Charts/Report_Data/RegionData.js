@@ -1,10 +1,10 @@
 import axios from "axios";
-import getYearFirst from "../../../Helpers/getYearFirst";
+import getYearFirst from "../../../Helpers/GetYearFirst";
 import { useState, useEffect } from "react";
 import MapChartT from "../../Templates/MapChartT";
+import useDataStore from "../../../Store/useDataStore";
 
-
-const date = getYearFirst();
+const date = getYearFirst() ;
 
 const sortFunction = (a,b)=>{
   if(a[0]===b[0]) return 0;
@@ -22,6 +22,7 @@ const mapper = (data) => {
 
 const RegionData = () => {
   const [data, setData] = useState([]);
+  const {startDate,endDate} = useDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +32,7 @@ const RegionData = () => {
           {
             dimensions: ["country"],
             metrics: ["totalUsers"],
-            dateRanges: [[date, "today"]],
+            dateRanges: [[startDate, endDate]],
           }
         );
         setData(mapper(response.data.data));
@@ -42,10 +43,10 @@ const RegionData = () => {
     };
 
     fetchData();
-  }, []);
+  }, [startDate,endDate]);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col w-full h-full justify-center items-center p-5">
       <MapChartT data={data} />
     </div>
   );

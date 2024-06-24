@@ -2,9 +2,7 @@ import axios from "axios";
 import Capitalise from "../../../Helpers/Capitalise";
 import { useState, useEffect } from "react";
 import BarChartT from "../../Templates/BarChartT";
-import getMonthFirst from "../../../Helpers/getMonthFirst";
-
-const date = getMonthFirst();
+import useDataStore from "../../../Store/useDataStore";
 
 const mapper = (data) => {
   const labels = [];
@@ -46,6 +44,8 @@ const FormSubmit = () => {
     seriesData: { form_submit: [], form_start: [] },
   });
 
+  const { startDate, endDate } = useDataStore();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,7 +54,7 @@ const FormSubmit = () => {
           {
             dimensions: ["pagePath", "eventName"],
             metrics: ["totalUsers"],
-            dateRanges: [[date, "today"]],
+            dateRanges: [[startDate,endDate]],
             dimensionFilter: [
               {
                 fieldName: "eventName",
@@ -73,7 +73,7 @@ const FormSubmit = () => {
     };
 
     fetchData();
-  }, []);
+  }, [startDate, endDate]);
 
   return <BarChartT data={data} />;
 };

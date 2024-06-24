@@ -2,7 +2,7 @@ import axios from "axios";
 import Capitalise from "../../../Helpers/Capitalise";
 import { useEffect, useState } from "react";
 import LineChartT from "../../Templates/LineChartT";
-import getMonthFirst from "../../../Helpers/getMonthFirst";
+import useDataStore from "../../../Store/useDataStore";
 
 const mapper = (data) => {
   const labels = data.map((item) => {
@@ -19,14 +19,14 @@ const mapper = (data) => {
   return { labels, value1Data, value2Data };
 };
 
-const date = getMonthFirst();
-
 const Bouncerate = () => {
   const [data, setData] = useState({
     labels: [],
     value1Data: [],
     value2Data: [],
   });
+
+  const { startDate, endDate } = useDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +36,7 @@ const Bouncerate = () => {
           {
             dimensions: ["pagePath"],
             metrics: ["totalUsers", "bounceRate"],
-            dateRanges: [[date, "today"]],
+            dateRanges: [[startDate, endDate]],
           }
         );
         setData(mapper(response.data.data));
@@ -47,7 +47,7 @@ const Bouncerate = () => {
     };
 
     fetchData();
-  }, []);
+  }, [startDate,endDate]);
 
   return <LineChartT data={data} />;
 };
