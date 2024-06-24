@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import getYearFirst from "../../../Helpers/getYearFirst";
+import getYearFirst from "../../../Helpers/GetYearFirst";
 import MonthConverter from "../../../Helpers/MonthConverter";
 import PieChartT from "../../Templates/PieChartT";
 

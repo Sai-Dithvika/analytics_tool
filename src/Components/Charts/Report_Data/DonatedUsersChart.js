@@ -1,5 +1,5 @@
 import axios from "axios";
-import getMonthFirst from "../../../Helpers/getMonthFirst";
+import getMonthFirst from "../../../Helpers/GetMonthFirst";
 import { useState,useEffect } from "react";
 import ProgressChartT from "../../Templates/ProgressChartT";
 

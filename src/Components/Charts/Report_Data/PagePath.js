@@ -2,7 +2,7 @@ import axios from "axios";
 import Capitalise from "../../../Helpers/Capitalise";
 import { useEffect, useState } from "react";
 import AreaChartT from "../../Templates/AreaChartT";
-
+import useDataStore from "../../../Store/useDataStore";
 
 const mapper = (data) => {
 
@@ -22,6 +22,7 @@ const mapper = (data) => {
   
 const PagePath=()=>{
     const [data,setData]=useState([]);
+    const { startDate, endDate } = useDataStore();
     useEffect(()=>{
       const fetchData=async()=>{
         try{
@@ -35,8 +36,8 @@ const PagePath=()=>{
             ],
             "dateRanges": [
               [
-                "2024-06-01",
-                "today"
+                startDate,
+                endDate
               ]
             ]
           });

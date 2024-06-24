@@ -21,7 +21,8 @@
     "react-simple-maps": "^3.0.0",
     "recharts": "^2.12.7",
     "rsuite": "^5.64.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
