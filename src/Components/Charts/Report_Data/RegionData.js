@@ -22,12 +22,14 @@ const mapper = (data) => {
 
 const RegionData = () => {
   const [data, setData] = useState([]);
-  const {startDate,endDate} = useDataStore();
+  const { startDate, endDate,setLoader} = useDataStore();
 
   useEffect(() => {
+    console.log("hii");
     const fetchData = async () => {
       try {
-        const response = await axios.post(
+          setLoader(1);   
+          const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
             dimensions: ["country"],
@@ -35,7 +37,9 @@ const RegionData = () => {
             dateRanges: [[startDate, endDate]],
           }
         );
+        console.log('holl');
         setData(mapper(response.data.data));
+        setLoader(0); 
       } catch (error) {
         console.log(error);
         setData([]);

@@ -1,10 +1,10 @@
-const DateInput = ({value, onChange }) => {
+const DateInput = ({value,onChange}) => {
 
   return (
     <input
       type= "date"
-      value={value}
       onChange={onChange}
+      value={value}
       className="h-full w-auto min-w-lg bg-slate-200 shadow-lg rounded-sm p-2"
     />
   );

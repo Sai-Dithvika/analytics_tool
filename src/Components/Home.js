@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Bouncerate from './Charts/Report_Data/BounceRate';
 import FormSubmit from './Charts/Report_Data/FormSubmit';
@@ -7,10 +7,15 @@ import PagePath from './Charts/Report_Data/PagePath';
 import TotalUsersCount from './Charts/Report_Data/TotalUsersCount';
 import DonatedUsersData from './Charts/Report_Data/DonatedUsersChart';
 import MonthlyReport from './Charts/Report_Data/MonthlyReport';
+import  Loader from './Templates/Loader';
+import useDataStore from "../Store/useDataStore";
 
 const Home = () => {
+  const {loader}=useDataStore();
+
   return (
-    <div className="min-h-screen bg-slate-100 p-4 ">
+    <>    
+    <div className={"min-h-screen bg-slate-100 p-4 "+(loader?"hidden":"")}>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 mt-4">
         <div className="bg-white flex flex-col justify-center items-center w-full rounded-md p-4 shadow-lg">
           <h5 className="text-lg font-semibold mb-4">UsersCount and Donations</h5>
@@ -41,6 +46,9 @@ const Home = () => {
         </div>
       </div>
     </div>
+    {loader==1 && 
+    <Loader />}
+    </>
   );
 };
 

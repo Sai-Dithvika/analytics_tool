@@ -22,7 +22,7 @@ const mapper = (data) => {
   
 const PagePath=()=>{
     const [data,setData]=useState([]);
-    const { startDate, endDate } = useDataStore();
+    const { startDate, endDate} = useDataStore();
     useEffect(()=>{
       const fetchData=async()=>{
         try{
@@ -49,7 +49,7 @@ const PagePath=()=>{
         }
       }
       fetchData();
-    });
+    },[startDate,endDate]);
     return <AreaChartT data={data}/>
 }
 

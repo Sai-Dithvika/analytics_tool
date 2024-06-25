@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import MapChartT from "../../Templates/MapChartT";
+import useDataStore from "../../../Store/useDataStore";
 
 const mapper = (data) => {
   var res = [["Country", "Users"]];
@@ -12,10 +13,11 @@ const mapper = (data) => {
 
 const RealTimeRegionData = () => {
   const [data, setData] = useState([]);
-
+  const {setLoader}=useDataStore();
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoader(1);
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/realtime`,
           {
@@ -25,6 +27,7 @@ const RealTimeRegionData = () => {
         );
         console.log(response.data.data);
         setData(mapper(response.data.data));
+        setLoader(0);
       } catch (error) {
         console.log("hi"+ error);
         setData([]);

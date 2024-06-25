@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
@@ -16,29 +16,29 @@ import RealtimeUserPage from './Components/Pages/Realtime/UserPage';
 import isShowPath from './Helpers/ShowPath';
 // Import the zustand variables
 import useDataStore from './Store/useDataStore';
+import { Button} from '@mui/material';
 
 function AppContent() {
   const location = useLocation();
   const { startDate, endDate, setStartDate, setEndDate } = useDataStore() ;
+  const [tempStartDate,setTempStartDate]=useState(startDate);
+  const [tempEndDate,setTempEndDate]=useState(endDate);
 
-  const handleStartDate = (event) => {
-    const date = event.target.value;
-    setStartDate(date);
+  const handleDateChange = () => {
+   setStartDate(tempStartDate);
+   setEndDate(tempEndDate);
   }
 
-  const handleEndDate = (event) => { 
-    const date = new Date(event.target.value);
-    setEndDate(date);
-  }
   return (
     <div className="bg-white-500 w-full min-h-screen">
       <Navbar />
       {isShowPath(location.pathname) &&
       <div className='w-full flex flex-row justify-end items-center gap-5 p-5 pr-32'>
         <span className='text-lg text-slate-950 font-bold'>From :</span>
-        <DateInput value={startDate} onChange={handleStartDate} />
+        <DateInput value={tempStartDate} onChange={(e)=>setTempStartDate(e.target.value)} />
         <span className='text-lg text-slate-950 font-bold'>To : </span>
-        <DateInput value={endDate} onChange={handleEndDate}/>
+        <DateInput value={tempEndDate} onChange={(e)=>setTempEndDate(e.target.value)} />
+        <Button onClick={handleDateChange}>Search</Button>
         {/* <button className=''>
           <img src="Search.svg"  alt="search" />
         </button> */}
@@ -46,10 +46,10 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/realtime">
-          <Route path="" element={<ReamTimeHome />} />
-          <Route path="form-data" element={<RealtimeFormSubmisionPage />} />
-          <Route path="demographic-data" element={<RealtimeDemographicPage />} />
-          <Route path="user-page" element={<RealtimeUserPage />} />
+          <Route path="" element={<ReamTimeHome  />} />
+          <Route path="form-data" element={<RealtimeFormSubmisionPage  />} />
+          <Route path="demographic-data" element={<RealtimeDemographicPage  />} />
+          <Route path="user-page" element={<RealtimeUserPage  />} />
         </Route>
         <Route path="/user-page" element={<UserPage />} />
         <Route path="/demographic-data" element={<DemographicPage />} />

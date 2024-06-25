@@ -3,6 +3,7 @@ import axios from "axios";
 import getYearFirst from "../../../Helpers/GetYearFirst";
 import MonthConverter from "../../../Helpers/MonthConverter";
 import PieChartT from "../../Templates/PieChartT";
+import useDataStore from "../../../Store/useDataStore";
 
 const mapper = (data) => {
   var id = 0;
@@ -21,10 +22,10 @@ const date = getYearFirst();
 
 const MonthlyReport = () => {
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
+        
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
@@ -34,6 +35,7 @@ const MonthlyReport = () => {
           }
         );
         setData(mapper(response.data.data));
+
       } catch (e) {
         setData([]);
       }

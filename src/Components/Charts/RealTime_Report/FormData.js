@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import BarChartT from "../../Templates/BarChartT";
+import useDataStore from "../../../Store/useDataStore";
 
 
 const mapper = (data) => {
@@ -41,10 +42,12 @@ const FormData = () => {
     labels: [],
     seriesData: { form_start: [], form_submit: [] },
   });
+  const {setLoader}=useDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoader(1);
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/realtime`,
           {
@@ -59,6 +62,7 @@ const FormData = () => {
           }
         );
         setData(mapper(response.data.data));
+        setLoader(0);
       } catch (e) {
         setData({
           labels: [],

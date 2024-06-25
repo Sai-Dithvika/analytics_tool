@@ -44,11 +44,12 @@ const FormSubmit = () => {
     seriesData: { form_submit: [], form_start: [] },
   });
 
-  const { startDate, endDate } = useDataStore();
+  const { startDate, endDate,setLoader} = useDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoader(1);
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
@@ -64,6 +65,7 @@ const FormSubmit = () => {
           }
         );
         setData(mapper(response.data.data));
+        setLoader(0);
       } catch (e) {
         setData({
           labels: [],

@@ -2,6 +2,7 @@ import axios from "axios";
 import getMonthFirst from "../../../Helpers/GetMonthFirst";
 import { useState,useEffect } from "react";
 import ProgressChartT from "../../Templates/ProgressChartT";
+import useDataStore from "../../../Store/useDataStore";
 
 const date = getMonthFirst();
 const DonatedUsersData= ()=>{
@@ -46,7 +47,7 @@ const DonatedUsersData= ()=>{
       }
     }
     fetchData();
-  });
+  },[]);
   return <ProgressChartT data={data} />;
 }
 

@@ -6,11 +6,12 @@ import useDataStore from "../../../Store/useDataStore";
 const TotalUsersCount = () => {
   const [data, setData] = useState(0);
   const [data1, setData1] = useState(0);
-  const { startDate, endDate } = useDataStore();
+  const { startDate, endDate,setLoader} = useDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoader(1);
         const response = await axios.post(
           `${process.env.REACT_APP_BACKEND}/analytics/report`,
           {
@@ -20,6 +21,7 @@ const TotalUsersCount = () => {
         );
        setData(response.data.data[0].value1);
        setData1(response.data.data[0].value2);
+       setLoader(0);
       }
       catch(error) { 
         console.log(error);
