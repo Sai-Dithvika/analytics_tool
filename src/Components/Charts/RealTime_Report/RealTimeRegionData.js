@@ -25,11 +25,10 @@ const RealTimeRegionData = () => {
             metrics: ["ActiveUsers"],
           }
         );
-        console.log(response.data.data);
         setData(mapper(response.data.data));
         setLoader(0);
       } catch (error) {
-        console.log("hi"+ error);
+        console.log(error);
         setData([]);
       }
     };

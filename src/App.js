@@ -25,6 +25,13 @@ function AppContent() {
   const [tempEndDate,setTempEndDate]=useState(endDate);
 
   const handleDateChange = () => {
+    if(tempStartDate>tempEndDate){ 
+      alert("Start Date should be less than End Date");
+      setTempStartDate(startDate);
+      setTempEndDate(endDate);
+      return;
+    }
+
    setStartDate(tempStartDate);
    setEndDate(tempEndDate);
   }

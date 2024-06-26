@@ -25,7 +25,6 @@ const RegionData = () => {
   const { startDate, endDate,setLoader} = useDataStore();
 
   useEffect(() => {
-    console.log("hii");
     const fetchData = async () => {
       try {
           setLoader(1);   
@@ -37,7 +36,6 @@ const RegionData = () => {
             dateRanges: [[startDate, endDate]],
           }
         );
-        console.log('holl');
         setData(mapper(response.data.data));
         setLoader(0); 
       } catch (error) {
